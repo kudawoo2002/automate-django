@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Import Data</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <h1>Import data from csv</h1>
+        <form action="{url 'import_data' }" method="post">
+          <input type="file" name="file_path" class="btn" /> <br />
+
+          <input type="submit" value="Import" class="btn-submit" />
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

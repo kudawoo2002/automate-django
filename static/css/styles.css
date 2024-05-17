@@ -1,0 +1,36 @@
+html {
+  font-size: 0.625rem;
+}
+
+h1 {
+  font-size: 6rem;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+}
+
+form {
+  text-align: center;
+}
+
+form input {
+  margin-bottom: 2rem;
+}
+
+.btn-submit {
+  border: none;
+  border-radius: 2rem;
+  padding: 1.4rem 4rem;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  background-color: #447ec0;
+  color: #fff;
+}
+
+form input[type="file"] {
+  border: 1px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}

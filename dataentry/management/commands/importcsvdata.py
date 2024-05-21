@@ -1,7 +1,9 @@
 from django.core.management.base import BaseCommand, CommandError
 from dataentry.models import Student
 from django.apps import apps
+from django.db import DataError
 import csv
+from dataentry.utils import check_csv_errors
 
 
 class Command(BaseCommand):
@@ -16,27 +18,11 @@ class Command(BaseCommand):
         model_name = kwargs['model_name'].capitalize()
 
         # Search for model accross all install apps
-        model = None
-        for app_config in apps.get_app_configs():
-            # Try to search the model
-            try:
-                model = apps.get_model(app_config.label, model_name) 
-                break
-            except LookupError:
-                continue
-        
-        if not model:
-            raise CommandError(f"model '{model_name}' not found in any apps")
+        model = check_csv_errors(file_path, model_name)
 
         with open(file_path, 'r') as file:
-            reader = csv.DictReader(file)
-            for row in reader:
+             reader = csv.DictReader(file)
+             for row in reader:
                 model.objects.create(**row)
-                # roll_no = row['roll_no']
-                # exist_rows = model.objects.filter(roll_no=roll_no).exists()
-                # if not exist_rows:
-                #     model.objects.create(**row)
-                # else:
-                #     self.stdout.write(self.style.WARNING(f"Student roll_no {roll_no} already exist"))
 
         self.stdout.write(self.style.SUCCESS("Data was imported from csv succesfully "))

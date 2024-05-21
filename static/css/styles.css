@@ -26,6 +26,8 @@ form input {
   text-transform: uppercase;
   background-color: #447ec0;
   color: #fff;
+  cursor: pointer;
+  margin-right: 12%;
 }
 
 form input[type="file"] {
@@ -33,4 +35,18 @@ form input[type="file"] {
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
+}
+
+label {
+  font-size: 2rem;
+}
+
+.db-selection {
+  margin-bottom: 2rem;
+  width: 20rem;
+  height: 3rem;
+  border: none;
+}
+.db-selection option {
+  padding: 2rem 4rem;
 }

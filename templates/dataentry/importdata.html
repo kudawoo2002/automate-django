@@ -11,10 +11,23 @@
     <main>
       <div class="container">
         <h1>Import data from csv</h1>
-        <form action="{url 'import_data' }" method="post">
-          <input type="file" name="file_path" class="btn" /> <br />
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %} {% for message in messages %} {% if message %}
+          <p>{{ message}}</p>
+          {% endif %} {% endfor %}
+          <label for="">Upload CSV File</label>
+          <input type="file" name="file_path" class="btn" required /> <br />
 
-          <input type="submit" value="Import" class="btn-submit" />
+          <label for="">Select Database Table</label>
+          <select name="model_name" id="" class="db-selection" required>
+            <option value="" disabled selected>Select</option>
+            {% for model in models %}
+            <option value="{{ model}}">{{model}}</option>
+            {% endfor %}
+          </select>
+          <br />
+
+          <input type="submit" value="Import Data" class="btn-submit" />
         </form>
       </div>
     </main>

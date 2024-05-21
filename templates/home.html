@@ -1,11 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Automate with django</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
-    <h1>Home page</h1>
+    <header class="header">
+      <nav>
+        <img src="" alt="" />
+        <ul>
+          <li class="list-items">
+            <a href="{% url 'import_data' %}">Import Data</a>
+          </li>
+          <li class="list-items">
+            <a href="{% url 'export_data' %}">Export Data</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
   </body>
 </html>

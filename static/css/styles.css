@@ -50,3 +50,26 @@ label {
 .db-selection option {
   padding: 2rem 4rem;
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+li {
+  list-style: none;
+  font-size: 3rem;
+  margin-left: 3rem;
+}

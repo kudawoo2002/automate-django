@@ -1,6 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 from django.apps import apps
 import csv
+from dataentry.utils import generate_csv_file
 import datetime
 
 
@@ -30,12 +31,9 @@ class Command(BaseCommand):
         data = model.objects.all()
 
         # filepath of the csv file
-        timestamp = datetime.datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
-
-        file_path = f'exported_{model_name}_data_{timestamp}.csv'
+        file_path = generate_csv_file(model_name)
         
         # Write data to the csv file
-
         with open(file_path, 'w', newline="") as file:
             writer = csv.writer(file)
 
